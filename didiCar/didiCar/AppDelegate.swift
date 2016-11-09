@@ -12,10 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    //地图管理者
+    lazy var mapManager: BMKMapManager = {
+        return BMKMapManager()
+    }()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        let result = mapManager.start("RgRxuTyGw0pvAskgR3C3dVrfjnby86Z0", generalDelegate: nil)
+        
+        
+        
+        if result {
+            print("地图引擎启动成功")
+        }else {
+            print("地图引擎启动失败")
+        }
+
+        
+        
         return true
     }
 
